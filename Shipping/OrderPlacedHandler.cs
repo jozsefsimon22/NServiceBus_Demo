@@ -8,7 +8,7 @@ public class OrderPlacedHandler : IHandleMessages<OrderPlaced>
     public static ILog log = LogManager.GetLogger<OrderPlacedHandler>();
     public Task Handle(OrderPlaced message, IMessageHandlerContext context)
     {
-        log.Info($"Shipping order for order ID: {message.Id}");
+        log.Info($"Received OrderPlaced, Order ID: {message.OrderId}");
 
         return Task.CompletedTask;
     }

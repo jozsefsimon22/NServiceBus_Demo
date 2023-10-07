@@ -1,5 +1,7 @@
 ﻿using NServiceBus.Logging;
 
+namespace Billing;
+
 class Program
 {
 

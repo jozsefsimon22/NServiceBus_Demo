@@ -1,6 +1,8 @@
 ﻿using Messages;
 using NServiceBus.Logging;
 
+namespace ClientUI;
+
 class Program
 {
 
@@ -42,11 +44,11 @@ class Program
                 case ConsoleKey.P:
                     var command = new PlaceOrder()
                     {
-                        Id = Guid.Empty.ToString()
+                        OrderId = Guid.NewGuid().ToString()
                     };
 
-                    log.Info($"Sending new order; Order ID: {command.Id}");
-                    await endpointInstance.SendLocal(command)
+                    log.Info($"Sending new order; Order ID: {command.OrderId}");
+                    await endpointInstance.Send(command)
                         .ConfigureAwait(false);
 
                     break;

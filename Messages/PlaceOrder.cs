@@ -2,5 +2,5 @@
 
 public class PlaceOrder : ICommand
 {
-    public string Id { get; set; }
+    public string OrderId { get; set; }
 }

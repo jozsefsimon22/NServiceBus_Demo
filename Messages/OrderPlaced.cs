@@ -2,5 +2,5 @@
 
 public class OrderPlaced : IEvent
 {
-    public string Id { get; set; }
+    public string OrderId { get; set; }
 }
