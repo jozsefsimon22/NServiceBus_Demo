@@ -15,6 +15,15 @@ class Program
 
         endpointConfiguration.UseSerialization<SystemJsonSerializer>();
 
+        var recoverability = endpointConfiguration.Recoverability();
+
+        // Sets the number of times Immediate Retries are performed
+        recoverability.Immediate(
+            immediate =>
+            {
+                immediate.NumberOfRetries(5);
+            });
+
         var transport = endpointConfiguration.UseTransport<LearningTransport>();
 
         var endpointInstance = await Endpoint.Start(endpointConfiguration)
